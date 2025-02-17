@@ -75,7 +75,36 @@ def checa_winner(simbolos:dict, combinaciones:list):
         if simbolos[c[0]] == simbolos[c[1]] == simbolos[c[2]]:
             return simbolos[c[0]]
     return None
+
+def actualiza_score(ganador:str, score:dict):
+    X = score['X']
+    O = score['O']
+    g = ganador
+    if g is not None:
+        print("Ganador: ", g)
+        if g == 'X':
+            X['G'] += 1
+            O['P'] += 1
+        elif g == 'O':
+            O['G'] += 1
+            X['P'] += 1
+        else:
+            X['E'] += 1
+            O['E'] += 1
+    else:
+        print ('Empate')
+        X['E'] += 1
+        O ['E'] += 1
+        print("Ganador: ", g) 
+        print("Score: ", score)
+        corriendo = False  
+    print("Score: ", score)  
+
+def despliegatablero(score:dict):
+    print(f''' X|G:{score["X"]["G"]} P:{score["X"]["P"]} E:{score["X"]["E"]}|)''')
+    print(f''' O|G:{score["O"]["G"]} P:{score["O"]["P"]} E:{score["O"]["E"]}|)''')
     '''
+
     en_juego = True
     dibuja_tablero(simbolos)
     while en_juego:

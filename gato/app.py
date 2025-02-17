@@ -23,9 +23,7 @@ def main():
             print("Empate")
             X["E"] += 1
             O["E"] += 1
-            print("Ganador: ", g)
-            print("Score: ", score)
-            corriendo = False  
-        print("Score: ", score)
+            tablero.actualiza_score(score,g)
+            tablero.despliegatablero(score)
 if __name__ == '__main__':
     main()
